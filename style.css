@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+}
+
+.container {
+    width: 60%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    animation: sombra 2s linear infinite;
+    position: relative;
+    padding: 5px;
+    border-radius: 10px;
+    background: url(/img/snow.png);
+    box-shadow: inset 0px 0px 8px #51ad;
+}
+
+@keyframes sombra {
+    0%{
+        filter: drop-shadow(0 0 5px #f1ef) drop-shadow(0 0 10px #f1ea) drop-shadow(0 0 15px #f1e4);
+    }
+    25%{
+        filter: drop-shadow(0 0 5px #f1e4) drop-shadow(0 0 10px #f1ef) drop-shadow(0 0 15px #f1ea);
+    }
+    50%{
+        filter: drop-shadow(0 0 5px #f1ea) drop-shadow(0 0 10px #f1e4) drop-shadow(0 0 15px #f1ef);
+    }
+    100%{
+        filter: drop-shadow(0 0 5px #f1ef) drop-shadow(0 0 10px #f1ea) drop-shadow(0 0 15px #f1e4);
+    }
+}
+
+.top, .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 30px;
+}
+
+.start, .stop {
+    border: none;
+    border-radius: 3px;
+    height: 25px;
+    width: 35px;
+    margin: 1px;
+    padding: 1px;
+    animation: fondo 3s linear infinite, sombra 2s linear infinite;
+    box-shadow: inset 0px 0px 5px #333;
+    cursor: pointer;
+}
+.start:focus, .stop:focus {
+    color: #1ff;
+}
+
+@keyframes fondo {
+    0% {
+        background: linear-gradient(to right, #62f, #51a);
+    }
+    50% {
+        background: linear-gradient(to right, #51a, #62f);
+    }
+    100% {
+        background: linear-gradient(to right, #62f, #51a);
+    }
+}
+
+.img {
+    border-radius: 50%;
+    box-shadow: inset 0 0 45px #1ff,  0 0 25px #1ff;
+}
+.img.active {
+    animation: rotar 1s linear infinite;
+}
+
+@keyframes rotar {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
